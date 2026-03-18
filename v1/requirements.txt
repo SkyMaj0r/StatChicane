@@ -1,0 +1,12 @@
+streamlit
+python-dotenv
+mysql-connector-python
+langchain
+langchain-community
+langchain-core
+google-generativeai
+google-api-core
+google-auth
+protobuf
+requests
+pandas
