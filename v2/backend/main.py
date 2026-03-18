@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import settings
-from app.routers import auth, ask, racelab
+from app.routers import auth, ask, racelab, health
 
 # ---------------------------------------------------------------------------
 # App instance
@@ -42,6 +42,7 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/api/auth")
 app.include_router(ask.router,  prefix="/api/ask")
 app.include_router(racelab.router, prefix="/api/racelab")
+app.include_router(health.router)
 
 # ---------------------------------------------------------------------------
 # Root health check

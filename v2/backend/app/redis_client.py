@@ -71,3 +71,19 @@ def delete_cache(key: str) -> None:
         _client.delete(key)
     except Exception as exc:
         logger.error("Redis DELETE error for key '%s': %s", key, exc)
+
+
+def test_redis_connection() -> dict:
+    """
+    Ping the Redis server to verify the connection is live.
+
+    Returns:
+        {"status": "ok",    "redis": "connected"} on success.
+        {"status": "error", "detail": <message>}  on failure.
+    """
+    try:
+        _client.ping()
+        return {"status": "ok", "redis": "connected"}
+    except Exception as exc:
+        logger.error("Redis health-check failed: %s", exc)
+        return {"status": "error", "detail": str(exc)}

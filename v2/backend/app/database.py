@@ -5,7 +5,7 @@ SQLAlchemy setup: engine, session factory, declarative base, and a
 FastAPI dependency (get_db) that manages session lifecycle per request.
 """
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 from app.config import settings
@@ -57,3 +57,20 @@ def get_db():
         yield db
     finally:
         db.close()
+
+
+def test_db_connection() -> dict:
+    """
+    Execute a trivial SELECT 1 to verify the MySQL connection is live.
+
+    Returns:
+        {"status": "ok",    "database": "connected"} on success.
+        {"status": "error", "detail": <message>}      on failure.
+    """
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+        return {"status": "ok", "database": "connected"}
+    except Exception as exc:
+        return {"status": "error", "detail": str(exc)}
+
