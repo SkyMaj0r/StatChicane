@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Tailwind v4 design tokens — replaces tailwind.config.ts
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* ── Base surfaces ─────────────────────────────────────── */
+  --color-background:    #1C1C1E;
+  --color-surface:       #2C2C2E;
+  --color-surface-high:  #3A3A3C;
+  --color-surface-border:#48484A;
+
+  /* ── Text ──────────────────────────────────────────────── */
+  --color-text-primary:   #F2F2F7;
+  --color-text-secondary: #AEAEB2;
+  --color-text-tertiary:  #6C6C70;
+
+  /* ── Brand / Accent ────────────────────────────────────── */
+  --color-accent:        #E8394D;
+  --color-accent-hover:  #FF4D61;
+  --color-accent-muted:  #3D1A1E;
+
+  /* ── Semantic ──────────────────────────────────────────── */
+  --color-success: #30D158;
+  --color-warning: #FFD60A;
+  --color-error:   #FF453A;
+  --color-info:    #0A84FF;
+
+  /* ── Tyre compounds ────────────────────────────────────── */
+  --color-tyre-soft:   #E8394D;
+  --color-tyre-medium: #FFD60A;
+  --color-tyre-hard:   #F2F2F7;
+  --color-tyre-inter:  #30D158;
+  --color-tyre-wet:    #0A84FF;
+
+  /* ── Typography ────────────────────────────────────────── */
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --text-xs:   11px; --text-xs--line-height: 16px;
+  --text-sm:   13px; --text-sm--line-height: 18px;
+  --text-base: 15px; --text-base--line-height: 22px;
+  --text-lg:   17px; --text-lg--line-height: 24px;
+  --text-xl:   20px; --text-xl--line-height: 28px;
+  --text-2xl:  24px; --text-2xl--line-height: 32px;
+  --text-3xl:  30px; --text-3xl--line-height: 38px;
+  --text-4xl:  36px; --text-4xl--line-height: 44px;
+
+  /* ── Border radius ─────────────────────────────────────── */
+  --radius-sm:      6px;
+  --radius:         10px;
+  --radius-md:      12px;
+  --radius-lg:      16px;
+  --radius-xl:      20px;
+  --radius-2xl:     24px;
+  --radius-full:    9999px;
+
+  /* ── Spacing extras ────────────────────────────────────── */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-30: 7.5rem;
+
+  /* ── Backdrop blur ─────────────────────────────────────── */
+  --blur-xs: 4px;
+  --blur-sm: 8px;
+  --blur-md: 16px;
+  --blur-lg: 24px;
+  --blur-xl: 40px;
+
+  /* ── Shadows ───────────────────────────────────────────── */
+  --shadow-subtle:  0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-card:    0 4px 16px rgba(0,0,0,0.4);
+  --shadow-elevated:0 8px 32px rgba(0,0,0,0.5);
+  --shadow-glow:    0 0 20px rgba(232,57,77,0.3);
+
+  /* ── Easing ────────────────────────────────────────────── */
+  --ease-apple:     cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-apple-in:  cubic-bezier(0.42, 0, 1.0, 1.0);
+  --ease-apple-out: cubic-bezier(0, 0, 0.58, 1.0);
+
+  /* ── Durations ─────────────────────────────────────────── */
+  --duration-250: 250ms;
+  --duration-350: 350ms;
+  --duration-450: 450ms;
+
+  /* ── Keyframe animations ───────────────────────────────── */
+  --animate-fade-in:    fadeIn 0.3s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --animate-slide-up:   slideUp 0.35s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --animate-pulse-soft: pulseSoft 2s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes slideUp {
+    0%   { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.5; }
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Base layer
+   ───────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #1C1C1E;
+    color: #F2F2F7;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar          { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track    { background: #2C2C2E; }
+  ::-webkit-scrollbar-thumb    { background: #48484A; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #6C6C70; }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(232, 57, 77, 0.3);
+    color: #F2F2F7;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Component utilities
+   ───────────────────────────────────────────────────────────── */
+@layer components {
+  /* Frosted glass */
+  .glass {
+    background: rgba(44, 44, 46, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(72, 72, 74, 0.5);
+  }
+  .glass-heavy {
+    background: rgba(28, 28, 30, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(72, 72, 74, 0.4);
+  }
+
+  /* Card */
+  .card {
+    background-color: #2C2C2E;
+    border-radius: 16px;
+    border: 1px solid rgba(72, 72, 74, 0.6);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+
+  /* Accent button */
+  .btn-accent {
+    background-color: #E8394D;
+    color: #F2F2F7;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  }
+  .btn-accent:hover {
+    background-color: #FF4D61;
+    transform: translateY(-1px);
+    box-shadow: 0 0 20px rgba(232,57,77,0.3);
+  }
+  .btn-accent:active { transform: translateY(0); }
+
+  /* Ghost button */
+  .btn-ghost {
+    background-color: transparent;
+    color: #AEAEB2;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(72, 72, 74, 0.6);
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  }
+  .btn-ghost:hover {
+    background-color: #3A3A3C;
+    color: #F2F2F7;
+    border-color: #48484A;
+  }
+
+  /* Input */
+  .input-field {
+    background-color: #3A3A3C;
+    color: #F2F2F7;
+    font-size: 15px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(72, 72, 74, 0.6);
+    outline: none;
+    transition: border-color 250ms cubic-bezier(0.25, 0.1, 0.25, 1.0);
+    width: 100%;
+  }
+  .input-field::placeholder { color: #6C6C70; }
+  .input-field:focus {
+    border-color: #E8394D;
+    box-shadow: 0 0 0 3px rgba(232, 57, 77, 0.15);
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: rgba(72, 72, 74, 0.6);
+    width: 100%;
+  }
+}
