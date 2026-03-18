@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+sqlalchemy
+mysql-connector-python
+redis
+python-jose[cryptography]
+passlib[bcrypt]
+python-dotenv
+google-generativeai
+fastf1
+pandas
+python-multipart
