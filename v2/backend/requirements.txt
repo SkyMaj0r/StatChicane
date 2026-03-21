@@ -7,7 +7,7 @@ redis
 python-jose[cryptography]
 passlib[bcrypt]
 python-dotenv
-google-generativeai
+google-genai
 fastf1
 pandas
 python-multipart
