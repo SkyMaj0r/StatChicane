@@ -10,17 +10,20 @@
   --color-background:    #1C1C1E;
   --color-surface:       #2C2C2E;
   --color-surface-high:  #3A3A3C;
-  --color-surface-border:#48484A;
+  --color-surface-border:#5F5F5F;
 
   /* ── Text ──────────────────────────────────────────────── */
-  --color-text-primary:   #F2F2F7;
-  --color-text-secondary: #AEAEB2;
+  --color-text-primary:   #DDD8C4;
+  --color-text-secondary: #A8A49A;
   --color-text-tertiary:  #6C6C70;
 
-  /* ── Brand / Accent ────────────────────────────────────── */
-  --color-accent:        #E8394D;
-  --color-accent-hover:  #FF4D61;
-  --color-accent-muted:  #3D1A1E;
+  /* ── Brand Accent (Dieter Rams orange) ─────────────────── */
+  --color-accent:        #FF4500;
+  --color-accent-hover:  #FF7F50;
+  --color-accent-muted:  #3D1A0A;
+
+  /* ── Easter egg — F1 red tribute ───────────────────────── */
+  --color-f1red: #FF1E00;
 
   /* ── Semantic ──────────────────────────────────────────── */
   --color-success: #30D158;
@@ -29,9 +32,9 @@
   --color-info:    #0A84FF;
 
   /* ── Tyre compounds ────────────────────────────────────── */
-  --color-tyre-soft:   #E8394D;
+  --color-tyre-soft:   #FF4500;
   --color-tyre-medium: #FFD60A;
-  --color-tyre-hard:   #F2F2F7;
+  --color-tyre-hard:   #DDD8C4;
   --color-tyre-inter:  #30D158;
   --color-tyre-wet:    #0A84FF;
 
@@ -72,7 +75,7 @@
   --shadow-subtle:  0 1px 3px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.2);
   --shadow-card:    0 4px 16px rgba(0,0,0,0.4);
   --shadow-elevated:0 8px 32px rgba(0,0,0,0.5);
-  --shadow-glow:    0 0 20px rgba(232,57,77,0.3);
+  --shadow-glow:    0 0 20px rgba(255,69,0,0.3);
 
   /* ── Easing ────────────────────────────────────────────── */
   --ease-apple:     cubic-bezier(0.25, 0.1, 0.25, 1.0);
@@ -121,7 +124,7 @@
 
   body {
     background-color: #1C1C1E;
-    color: #F2F2F7;
+    color: #DDD8C4;
     font-family: 'Inter', system-ui, sans-serif;
     font-size: 15px;
     line-height: 1.5;
@@ -133,10 +136,10 @@
   ::-webkit-scrollbar-thumb    { background: #48484A; border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: #6C6C70; }
 
-  /* Selection */
+  /* Selection — F1 red easter egg */
   ::selection {
-    background-color: rgba(232, 57, 77, 0.3);
-    color: #F2F2F7;
+    background-color: rgba(255, 30, 0, 0.35);
+    color: #DDD8C4;
   }
 }
 
@@ -168,8 +171,8 @@
 
   /* Accent button */
   .btn-accent {
-    background-color: #E8394D;
-    color: #F2F2F7;
+    background-color: #FF4500;
+    color: #DDD8C4;
     font-weight: 600;
     font-size: 15px;
     padding: 10px 20px;
@@ -179,9 +182,9 @@
     transition: all 250ms cubic-bezier(0.25, 0.1, 0.25, 1.0);
   }
   .btn-accent:hover {
-    background-color: #FF4D61;
+    background-color: #FF7F50;
     transform: translateY(-1px);
-    box-shadow: 0 0 20px rgba(232,57,77,0.3);
+    box-shadow: 0 0 20px rgba(255,69,0,0.3);
   }
   .btn-accent:active { transform: translateY(0); }
 
@@ -217,8 +220,8 @@
   }
   .input-field::placeholder { color: #6C6C70; }
   .input-field:focus {
-    border-color: #E8394D;
-    box-shadow: 0 0 0 3px rgba(232, 57, 77, 0.15);
+    border-color: #FF4500;
+    box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.15);
   }
 
   /* Divider */
